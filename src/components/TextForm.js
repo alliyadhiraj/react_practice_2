@@ -52,11 +52,11 @@ export default function TextForm(props) {
                     <textarea className="form-control" value={text} onChange={handleOnChange} style={{ backgroundColor: props.mode === 'dark' ? '#13466e' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} id="mybox" rows="8"></textarea>
                 </div>
 
-                <button onClick={handleUpClick} type="button" className="btn btn-primary mx-2 my-2" >Convert to upperCase</button>
-                <button onClick={handleToLower} type="button" className="btn btn-primary mx-2 my-2">Convert to lowerCase</button>
-                <button onClick={handleCopy} type="button" className="btn btn-primary mx-2 my-2">Copy</button>
-                <button onClick={clearText} type="button" className="btn btn-primary mx-2 my-2">clear Text</button>
-                <button onClick={removeSpace} type="button" className="btn btn-primary mx-2 my-2">Remove Space</button>
+                <button disabled={text.length===0} onClick={handleUpClick} type="button" className="btn btn-primary mx-2 my-2" >Convert to upperCase</button>
+                <button disabled={text.length===0} onClick={handleToLower} type="button" className="btn btn-primary mx-2 my-2">Convert to lowerCase</button>
+                <button disabled={text.length===0} onClick={handleCopy} type="button" className="btn btn-primary mx-2 my-2">Copy</button>
+                <button disabled={text.length===0} onClick={clearText} type="button" className="btn btn-primary mx-2 my-2">clear Text</button>
+                <button disabled={text.length===0} onClick={removeSpace} type="button" className="btn btn-primary mx-2 my-2">Remove Space</button>
             </div>
             <div className='container my-3' style={{ color: props.mode === 'dark' ? 'white' : 'black' }} >
                 <h1>Your text summary</h1>
@@ -64,7 +64,7 @@ export default function TextForm(props) {
                 <p>{0.008 * text.split(" ").filter((element) =>{return element.length !==0}).length} Minutes Read</p>
 
                 <h1>Priview</h1>
-                <p>{text.length > 0 ? text : "enter something in textbox to priview it here"}</p>
+                <p>{text.length > 0 ? text : "Nothing to preview"}</p>
 
             </div>
         </>
